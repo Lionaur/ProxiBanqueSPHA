@@ -16,18 +16,8 @@
 	<ui:composition template="/WEB-INF/tags/layout.xhtml">
 		<ui:define name="content">
 
-			<h:form>
-				<p:commandButton value="Ajouter un client" action="ajoutClient"
-					ajax="false" icon="ui-icon-star" />
-			</h:form>
-
 			<h:form id="listClient">
-				<br />
-				<p:commandButton value="Déconnexion"
-					action="#{proxiController.logOut()}" ajax="false"
-					icon="ui-icon-circle-close"></p:commandButton>
-				<br />
-				<br />
+			
 				<p:growl id="messages" showDetail="true" />
 
 				<p:dataTable var="tempclient" value="#{proxiController.customers}"
