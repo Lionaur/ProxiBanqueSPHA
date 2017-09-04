@@ -28,6 +28,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableAspectJAutoProxy
 @ComponentScan(basePackages={"org.proxiBanqueSPHA"})
 public class ProxiConfig {
+	
 	@Autowired
 	private Environment environment;
 
@@ -38,7 +39,6 @@ public class ProxiConfig {
 		dataSource.setUrl(environment.getProperty("db.url"));
 		dataSource.setUsername(environment.getProperty("db.username"));
 		dataSource.setPassword(environment.getProperty("db.password"));
-
 		return dataSource;
 
 	}
@@ -57,7 +57,6 @@ public class ProxiConfig {
 		HibernateJpaVendorAdapter jpaVendorAdapter = new HibernateJpaVendorAdapter();
 		jpaVendorAdapter.setDatabase(Database.MYSQL);
 		jpaVendorAdapter.setShowSql(true);
-
 		return jpaVendorAdapter;
 	}
 
@@ -68,12 +67,9 @@ public class ProxiConfig {
 		entityManagerFactory.setJpaVendorAdapter(jpaVendorAdapter());
 		entityManagerFactory.setPackagesToScan("org.proxiBanqueSPHA");
 		entityManagerFactory.setPersistenceUnitName("persistenceUnit");
-
 		Properties jpaProperties = new Properties();
 		jpaProperties.setProperty("hibernate.hbm2ddl.auto", "update");
-
 		entityManagerFactory.setJpaProperties(jpaProperties);
-
 		return entityManagerFactory;
 	}
 	

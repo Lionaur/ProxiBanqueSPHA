@@ -5,6 +5,9 @@ import java.util.List;
 import org.proxiBanqueSPHA.model.Customer;
 
 public interface IServiceCustomer {
-	public void createCustomer(Customer customer);
 	public List<Customer> getAllCustomers();
+	public Customer readCustomer(int idCustomer);
+	public void editCustomer(Customer customer);
+	public void deleteCustomer(int idCustomer);
+	
 }

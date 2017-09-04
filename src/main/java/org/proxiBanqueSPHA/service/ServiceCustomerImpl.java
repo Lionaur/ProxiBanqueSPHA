@@ -14,10 +14,7 @@ public class ServiceCustomerImpl implements IServiceCustomer {
 	@Resource(name = "dao")
 	private IDaoCustomer dao;
 
-	@Override
-	public List<Customer> getAllCustomers() {
-		return dao.findAll();
-	}
+	
 
 	public IDaoCustomer getDao() {
 		return dao;
@@ -33,9 +30,27 @@ public class ServiceCustomerImpl implements IServiceCustomer {
 	}
 
 	@Override
-	public void createCustomer(Customer customer) {
-		dao.saveAndFlush(customer);
-
+	public List<Customer> getAllCustomers() {
+		System.out.println("ok");
+		return dao.findAll();
 	}
+	
+	@Override
+	public Customer readCustomer(int idCustomer) {
+		return dao.findOne(idCustomer);
+	}
+
+	@Override
+	public void editCustomer(Customer customer) {
+		dao.saveAndFlush(customer);
+		
+	}
+
+	@Override
+	public void deleteCustomer(int idCustomer) {
+		dao.delete(idCustomer);
+		
+	}
+	
 
 }

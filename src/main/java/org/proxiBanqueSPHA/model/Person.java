@@ -12,7 +12,6 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Entity
-@Component
 @Scope(value=ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 @Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
 public abstract class Person {
@@ -32,6 +31,13 @@ public abstract class Person {
 	}
 	
 	
+	
+	public Person(String name, String firstname) {
+		super();
+		this.name = name;
+		this.firstname = firstname;
+	}
+
 	public Person(int id, String name, String firstname) {
 		super();
 		this.id = id;
