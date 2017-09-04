@@ -27,6 +27,7 @@ public class Customer extends Person{
 	private String email;
 	private String tel;
 	private String cp;
+	private String town;
 //	private List<Account> listAccount=new ArrayList<>();
 	
 	
