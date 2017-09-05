@@ -6,10 +6,10 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 
-<!-- <f:metadata> -->
-<!-- 	<f:event type="preRenderView" -->
-<!-- 		listener="#{proxiController.loadClients()}" /> -->
-<!-- </f:metadata> -->
+<f:metadata>
+	<f:event type="preRenderView"
+		listener="#{customerController.loadAllCustomers()}" />
+</f:metadata>
 
 
 <h:body>
@@ -35,7 +35,7 @@
 					emptyMessage="Aucun client existant" rows="10" paginator="true"
 					paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
 					rowsPerPageTemplate="5,10,15" rowKey="#{tempclient.nom}"
-					selection="#{proxiController.selectedClient}"
+					selection="#{customerController.selectedClient}"
 					selectionMode="single">
 
 					<f:facet name="header">Liste des clients</f:facet>
