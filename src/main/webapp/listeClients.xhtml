@@ -7,8 +7,6 @@
 	xmlns:p="http://primefaces.org/ui">
 
 
-
-
 <ui:composition template="/WEB-INF/tags/layout.xhtml">
 	<ui:define name="metadata">
 		<f:metadata>
@@ -20,19 +18,11 @@
 
 	<ui:define name="content">
 
-		<!-- 			<h:form> -->
-		<!-- 				<p:commandButton id="1" value="Ajouter un client" -->
-		<!-- 					action="ajoutClient" ajax="false" icon="ui-icon-star" /> -->
-		<!-- 			</h:form> -->
-
 		<h:form id="listClient">
-			<br />
-			<!-- 				<p:commandButton id="2" value="Déconnexion" -->
-			<!-- 					action="#{proxiController.logOut()}" ajax="false" -->
-			<!-- 					icon="ui-icon-circle-close"></p:commandButton> -->
-			<br />
-			<br />
+
+
 			<p:growl id="messages" showDetail="true" />
+
 
 			<p:dataTable var="tempclient"
 				value="#{customerController.allCustomers}" styleClass="et_datatable"
@@ -40,8 +30,8 @@
 				paginator="true"
 				paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
 				rowsPerPageTemplate="5,10,15" rowKey="#{tempclient.name}">
-<!-- 				selection="#{customerController.selectedCustomer}" -->
-<!-- 				selectionMode="single" -->
+				<!-- 				selection="#{customerController.selectedCustomer}" -->
+				<!-- 				selectionMode="single" -->
 				<f:facet name="header">Liste des clients</f:facet>
 
 				<p:column headerText="Détails">

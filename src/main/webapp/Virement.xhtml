@@ -1,7 +1,10 @@
-<!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:f="http://xmlns.jcp.org/jsf/core">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,54 +18,60 @@
 </h:head>
 
 <h:body>
-
-	<div id="wrapper">
-		<div id="header">
-			<h2>Proxibanque 3</h2>
-		</div>
-	</div>
-
-	<div id="container">
-		<h3>Effectuer un virement de compte à compte</h3>
-
-		<h:messages globalOnly="true" />
-
-		<h:form id="form" style="margin-top: 10px;">
+	<ui:composition template="/WEB-INF/tags/layout.xhtml">
+		<ui:define name="content">
 
 
-			<h:outputLabel>Compte à débiter : </h:outputLabel>
-			<h:selectOneMenu value="#{proxiController.compte}">
+			<div id="wrapper">
+				<div id="header">
+					<h2>Proxibanque 3</h2>
+				</div>
+			</div>
 
-			</h:selectOneMenu>
-			<br />
-			<br />
-			<br />
-			<h:outputLabel>Compte à créditer : </h:outputLabel>
-			<h:selectOneMenu value="#{proxiController.compte}">
-				<f:selectItem itemValue="#{proxiController.compte}" itemLabel="#{proxiController.compte}" />
-			</h:selectOneMenu>
-			<br />
-			<br />
-			<br />
-			<h:outputLabel>Montant : </h:outputLabel>
-			<h:inputText value="#{proxiController.montant}" id="montant"
-				required="true" requiredMessage="Il faut définir un montant."
-				maxlength="40" />
-			<h:message for="montant" />
-			<br />
-			<br />
-			<h:commandButton value="Save" styleClass="save"
-				action="#{proxiController.virement}" />
+			<div id="container">
+				<h3>Effectuer un virement de compte à compte</h3>
+
+				<h:messages globalOnly="true" />
+
+				<h:form id="form" style="margin-top: 10px;">
 
 
-		</h:form>
+					<h:outputLabel>Compte à débiter : </h:outputLabel>
+					<h:selectOneMenu value="#{proxiController.compte}">
 
-		<div style="clear: both;"></div>
+					</h:selectOneMenu>
+					<br />
+					<br />
+					<br />
+					<h:outputLabel>Compte à créditer : </h:outputLabel>
+					<h:selectOneMenu value="#{proxiController.compte}">
+						<f:selectItem itemValue="#{proxiController.compte}"
+							itemLabel="#{proxiController.compte}" />
+					</h:selectOneMenu>
+					<br />
+					<br />
+					<br />
+					<h:outputLabel>Montant : </h:outputLabel>
+					<h:inputText value="#{proxiController.montant}" id="montant"
+						required="true" requiredMessage="Il faut définir un montant."
+						maxlength="40" />
+					<h:message for="montant" />
+					<br />
+					<br />
+					<h:commandButton value="Save" styleClass="save"
+						action="#{proxiController.virement}" />
 
-		<p>
-			<h:outputLink value="index.xhtml">Retour à la liste clients</h:outputLink>
-		</p>
 
-	</div>
+				</h:form>
+
+				<div style="clear: both;"></div>
+
+				<p>
+					<h:outputLink value="listeClients.xhtml">Retour à la liste clients</h:outputLink>
+				</p>
+
+			</div>
+		</ui:define>
+	</ui:composition>
 </h:body>
 </html>
