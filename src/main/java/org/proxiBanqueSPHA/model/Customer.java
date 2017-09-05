@@ -19,17 +19,18 @@ import org.springframework.stereotype.Component;
 
 @Entity
 @Component("customer")
-@Scope(value=ConfigurableBeanFactory.SCOPE_PROTOTYPE)
-public class Customer extends Person{
-	
-//	private String name;
-//	private String firstname;
+@Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+
+public class Customer extends Person {
+
 	private String address;
 	private String email;
 	private String tel;
 	private String cp;
+	
 	@OneToMany (mappedBy="customer", orphanRemoval=true, cascade= CascadeType.ALL)
 	private List<Account> listAccount=new ArrayList<>();
+	private String town;
 	
 	
 	public Customer() {
@@ -42,27 +43,17 @@ public class Customer extends Person{
 		super();
 		this.tel = tel;
 		this.cp = cp;
+
+	}
+		
+
+	public String getTown() {
+		return town;
 	}
 
-
-//	public String getName() {
-//		return name;
-//	}
-//
-//
-//	public void setName(String name) {
-//		this.name = name;
-//	}
-//
-//
-//	public String getFirstname() {
-//		return firstname;
-//	}
-//
-//
-//	public void setFirstname(String firstname) {
-//		this.firstname = firstname;
-//	}
+	public void setTown(String town) {
+		this.town = town;
+	}
 
 
 	public String getAddress() {
@@ -105,6 +96,7 @@ public class Customer extends Person{
 	}
 
 
+
 	public List<Account> getListAccount() {
 		return listAccount;
 	}
@@ -125,8 +117,6 @@ public void addAccount(Account account) {
 		return "Customer [ " + ", address="
 				+ address + ", email=" + email + ", tel=" + tel + ", cp=" + cp + "]";
 	}
-
-
 
 	
 

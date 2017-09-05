@@ -22,7 +22,7 @@
 
 				<p:growl id="messages" showDetail="true" />
 
-				<p:dataTable var="tempclient" value="#{proxiController.customers}"
+				<p:dataTable var="tempclient" value="#{customerController.allCustomers}"
 					styleClass="et_datatable" reflow="true"
 					emptyMessage="Aucun client existant" rows="10" paginator="true"
 					paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
