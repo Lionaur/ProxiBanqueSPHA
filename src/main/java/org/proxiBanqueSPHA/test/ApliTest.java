@@ -20,32 +20,32 @@ public class ApliTest {
 		ApplicationContext context = new AnnotationConfigApplicationContext(ProxiConfig.class);
 		IServiceCustomer service = context.getBean("serviceCustomer", IServiceCustomer.class);
 
-		Customer c1 = new Customer("riri","fifi");
-		Customer c2 = new Customer("titi","toto");
-
-		c1.setAddress("12 rue test");
-		c1.setEmail("fifi.r@test.test");
-		service.editCustomer(c1);
-		
-		System.out.println(service.getAllCustomers());
-//		
-//		service.editCustomer(c2);
-//		System.out.println(service.getAllCustomers());
-//		service.editCustomer(c3);
-		
-//		System.out.println(service.getAllCustomers());
-//		service.deleteCustomer(2);
+//		Customer c1 = new Customer("riri","fifi");
+//		Customer c2 = new Customer("titi","toto");
+//
+//		c1.setAddress("12 rue test");
+//		c1.setEmail("fifi.r@test.test");
+//		service.editCustomer(c1);
 //		
 //		System.out.println(service.getAllCustomers());
-
-
-		
-		service.getAllCustomers();
-		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/YYYY HH:mm:ss");
-		String dateTransfer = LocalDateTime.now().format(dtf);
-		LocalDateTime date = LocalDateTime.now();
-		System.out.println(date);
-
+////		
+////		service.editCustomer(c2);
+////		System.out.println(service.getAllCustomers());
+////		service.editCustomer(c3);
+//		
+////		System.out.println(service.getAllCustomers());
+////		service.deleteCustomer(2);
+////		
+////		System.out.println(service.getAllCustomers());
+//
+//
+//		
+//		service.getAllCustomers();
+//		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/YYYY HH:mm:ss");
+//		String dateTransfer = LocalDateTime.now().format(dtf);
+//		LocalDateTime date = LocalDateTime.now();
+//		System.out.println(date);
+//
 		IServiceAccount serviceAccount = context.getBean("serviceAccount", IServiceAccount.class);
 //		Customer c1 = new Customer("riri","fifi");
 //		Customer c2 = new Customer("titi","toto");
@@ -72,7 +72,7 @@ public class ApliTest {
 	
 //	System.out.println(serviceAccount.getAllAccount());
 	
-//	System.out.println(serviceAccount.getCustomerAccount(196608));
+	System.out.println(serviceAccount.getCustomerAccount(163840));
 
 //	serviceAccount.deleteAccount(229377);
 
