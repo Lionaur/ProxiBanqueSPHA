@@ -4,116 +4,133 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 
-<h:head>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-	<title>Ajout client</title>
-
-
-</h:head>
-
-<h:body>
-	<ui:composition template="/WEB-INF/tags/layout.xhtml">
-		<ui:define name="content">
+<ui:composition template="/WEB-INF/tags/layout.xhtml">
+	<ui:define name="content">
+		<div id="container">
 
 
-			<div id="wrapper">
-				<div id="header">
-					<h2>Proxibanque 3</h2>
-				</div>
-			</div>
+			<h:messages globalOnly="true" />
 
-			<div id="container">
+			<h:form id="form" style="margin-top: 10px;">
+				<p:panelGrid layout="grid">
+					<f:facet name="header">
+						<p:row>
+							<p:column colspan="7">Ajouter un client</p:column>
+						</p:row>
+					</f:facet>
+					<p:row>
+						<p:column colspan="2">
+							<h:outputLabel>Prénom :</h:outputLabel>
+						</p:column>
+						<p:column colspan="5">
+							<p:inputText value="#{customer.firstname}" id="prenom"
+								required="true"
+								requiredMessage="Le prénom du client doit être renseigné."
+								maxlength="30"
+								validatorMessage="Seules les lettres (aA-zZ) sont autorisées.">
+								<f:validateRegex
+									pattern="^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ\s-]+$" />
+								<f:validateLength minimum="2" />
+							</p:inputText>
+							<h:message for="prenom" />
+						</p:column>
+					</p:row>
+					<p:row>
+						<p:column colspan="2">
+							<h:outputLabel>Nom :</h:outputLabel>
+						</p:column>
+						<p:column colspan="5">
+							<p:inputText value="#{customer.name}" id="nom" required="true"
+								requiredMessage="Le nom du client doit être renseigné."
+								maxlength="30"
+								validatorMessage="Seules les lettres (aA-zZ) sont autorisées.">
+								<f:validateRegex
+									pattern="^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ\s-]+$" />
+								<f:validateLength minimum="2" />
+							</p:inputText>
+							<h:message for="nom" />
+						</p:column>
+					</p:row>
+					<p:row>
+						<p:column colspan="2">
+							<h:outputLabel>Email :</h:outputLabel>
+						</p:column>
+						<p:column colspan="5">
+							<p:inputText value="#{customer.email}" id="email" required="true"
+								requiredMessage="L'E-Mail du client doit être renseigné."
+								maxlength="40"
+								validatorMessage="Entrer un format d'adresse e-mail valide (ex: client@proxibanque.fr)">
 
-
-				<h:messages globalOnly="true" />
-
-				<h:form id="form" style="margin-top: 10px;">
-					<p:panelGrid columns="3" layout="grid">
-						<f:facet name="header">
-							<p:row>
-								<p:column>Ajouter un client</p:column>
-							</p:row>
-						</f:facet>
-						<h:outputLabel>Prénom :</h:outputLabel>
-						<p:inputText value="#{client.prenom}" id="prenom" required="true"
-							requiredMessage="Le prénom du client doit être renseigné."
-							maxlength="30"
-							validatorMessage="Seules les lettres (aA-zZ) sont autorisées.">
-							<f:validateRegex
-								pattern="^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ\s-]+$" />
-							<f:validateLength minimum="2" />
-						</p:inputText>
-						<h:message for="prenom" />
-
-						<h:outputLabel>Nom :</h:outputLabel>
-						<p:inputText value="#{client.nom}" id="nom" required="true"
-							requiredMessage="Le nom du client doit être renseigné."
-							maxlength="30"
-							validatorMessage="Seules les lettres (aA-zZ) sont autorisées.">
-							<f:validateRegex
-								pattern="^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ\s-]+$" />
-							<f:validateLength minimum="2" />
-						</p:inputText>
-						<h:message for="nom" />
-
-						<h:outputLabel>Email :</h:outputLabel>
-						<p:inputText value="#{client.email}" id="email" required="true"
-							requiredMessage="L'E-Mail du client doit être renseigné."
-							maxlength="40"
-							validatorMessage="Entrer un format d'adresse e-mail valide (ex: client@proxibanque.fr)">
-
-							<f:validateRegex
-								pattern="^([_a-zA-Z0-9-]+(\.[_a-zA-Z0-9-]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-zA-Z]{1,6}))?$" />
-						</p:inputText>
-						<h:message for="email" />
-
-						<h:outputLabel>Téléphone :</h:outputLabel>
-						<p:inputText value="#{client.telephone}" id="tel" required="true"
-							requiredMessage="Le numéro de téléphone du client doit être renseigné."
-							maxlength="10"
-							validatorMessage="Seuls les chiffres sont autorisés.">
-							<f:validateRegex pattern="^[_0-9]+$" />
-						</p:inputText>
-						<h:message for="tel" />
-
+								<f:validateRegex
+									pattern="^([_a-zA-Z0-9-]+(\.[_a-zA-Z0-9-]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-zA-Z]{1,6}))?$" />
+							</p:inputText>
+							<h:message for="email" />
+						</p:column>
+					</p:row>
+					<p:row>
+						<p:column colspan="2">
+							<h:outputLabel>Téléphone :</h:outputLabel>
+						</p:column>
+						<p:column colspan="5">
+							<p:inputText value="#{customer.tel}" id="tel" required="true"
+								requiredMessage="Le numéro de téléphone du client doit être renseigné."
+								maxlength="10"
+								validatorMessage="Seuls les chiffres sont autorisés.">
+								<f:validateRegex pattern="^[_0-9]+$" />
+							</p:inputText>
+							<h:message for="tel" />
+						</p:column>
+					</p:row>
+					<p:row>
+					<p:column colspan="2">
 						<h:outputLabel>Adresse :</h:outputLabel>
-						<p:inputText value="#{client.adresse}" id="adresse"
-							required="true"
+					</p:column>
+					<p:column colspan="5">
+						<p:inputText value="#{customer.address}" id="adresse" required="true"
 							requiredMessage="L'adresse du client doit être renseignée."
 							maxlength="40" />
 						<h:message for="adresse" />
+						</p:column>
+					</p:row>
+					<p:row>
+						<p:column colspan="2">
+							<h:outputLabel>Code Postal :</h:outputLabel>
+						</p:column>
+						<p:column colspan="5">
+							<p:inputText value="#{customer.cp}" id="cp" required="true"
+								requiredMessage="Le code postal du client doit être renseigné."
+								maxlength="40" />
+							<h:message for="cp" />
+						</p:column>
+					</p:row>
+					<p:row>
+						<p:column colspan="2">
+							<h:outputLabel>Ville :</h:outputLabel>
+						</p:column>
+						<p:column colspan="5">
+							<p:inputText value="#{customer.town}" id="ville" required="true"
+								requiredMessage="La ville du client doit être renseignée."
+								maxlength="40" />
+							<h:message for="ville" />
+						</p:column>
+					</p:row>
+					<p:row>
+						<p:column colspan="7">
+							<p:commandButton id="validerAjoutClient" value="Valider"
+								 icon="ui-icon-disk"
+								action="#{customerController.addCustomer(customer)}">
+							</p:commandButton>
+						</p:column>
+					</p:row>
+				</p:panelGrid>
 
-						<h:outputLabel>Code Postal :</h:outputLabel>
-						<p:inputText value="#{client.codePostal}" id="cp" required="true"
-							requiredMessage="Le code postal du client doit être renseigné."
-							maxlength="40" />
-						<h:message for="cp" />
+			</h:form>
 
-						<h:outputLabel>Ville :</h:outputLabel>
-						<p:inputText value="#{client.ville}" id="ville" required="true"
-							requiredMessage="La ville du client doit être renseignée."
-							maxlength="40" />
-						<h:message for="ville" />
-
-						<h:outputLabel />
-<!-- 						<p:commandButton value="Valider" ajax="false" icon="ui-icon-disk" -->
-<!-- 							action="#{proxiController.addClient(client)}" /> -->
-
-					</p:panelGrid>
-				</h:form>
-
-				<div style="clear: both;"></div>
-
-				<p>
-					<p:link outcome="listeClients.xhtml" value="Retour à la liste clients"></p:link>
-				</p>
-
-			</div>
-		</ui:define>
-	</ui:composition>
-</h:body>
+		</div>
+	</ui:define>
+</ui:composition>
 </html>
