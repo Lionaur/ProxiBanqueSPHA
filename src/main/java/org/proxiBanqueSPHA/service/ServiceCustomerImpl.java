@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.proxiBanqueSPHA.dao.IDaoAccount;
 import org.proxiBanqueSPHA.dao.IDaoCustomer;
 import org.proxiBanqueSPHA.model.Customer;
 import org.springframework.stereotype.Service;
@@ -13,8 +14,6 @@ public class ServiceCustomerImpl implements IServiceCustomer {
 
 	@Resource(name = "dao")
 	private IDaoCustomer dao;
-
-	
 
 	public IDaoCustomer getDao() {
 		return dao;
@@ -36,8 +35,8 @@ public class ServiceCustomerImpl implements IServiceCustomer {
 	}
 	
 	@Override
-	public Customer readCustomer(int idCustomer) {
-		return dao.findOne(idCustomer);
+	public Customer readCustomer(int id) {
+		return dao.findOne(id);
 	}
 
 	@Override
@@ -47,8 +46,8 @@ public class ServiceCustomerImpl implements IServiceCustomer {
 	}
 
 	@Override
-	public void deleteCustomer(int idCustomer) {
-		dao.delete(idCustomer);
+	public void deleteCustomer(int id) {
+		dao.delete(id);
 		
 	}
 	
