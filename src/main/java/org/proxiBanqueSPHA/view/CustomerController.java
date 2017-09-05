@@ -69,7 +69,8 @@ public class CustomerController implements Serializable {
 			return null;
 		}
 
-		return "ajoutClient?faces-redirect=true";
+//		return "ajoutClient?faces-redirect=true";
+		return "";
 	}
 
 	/**

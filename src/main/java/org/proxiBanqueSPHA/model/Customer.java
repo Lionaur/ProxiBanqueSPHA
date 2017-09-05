@@ -14,6 +14,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Entity
+@ManagedBean
 @Component("customer")
 @Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 public class Customer extends Person {
