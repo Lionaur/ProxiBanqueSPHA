@@ -49,8 +49,8 @@ public class ServiceAccountImpl implements IServiceAccount{
 	}
 
 	@Override
-	public Set<Account> getCustomerAccount(int id) {
-		
+	public List<Account> getCustomerAccount(int id) {
+
 		return daoAccount.findAccountByCustomerId(id);
 	}
 	

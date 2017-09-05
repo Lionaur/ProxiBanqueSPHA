@@ -12,5 +12,5 @@ public interface IServiceAccount {
 	public Account readAccount(int accountNumber);
 	public void editAccount(Account account);
 	public void deleteAccount(int accountNumber);
-	public Set<Account> getCustomerAccount(int id);
+	public List<Account> getCustomerAccount(int id);
 }
