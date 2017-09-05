@@ -16,21 +16,13 @@
 	<ui:composition template="/WEB-INF/tags/layout.xhtml">
 		<ui:define name="content">
 
-			<!-- 			<h:form> -->
-			<!-- 				<p:commandButton id="1" value="Ajouter un client" -->
-			<!-- 					action="ajoutClient" ajax="false" icon="ui-icon-star" /> -->
-			<!-- 			</h:form> -->
 
 			<h:form id="listClient">
-				<br />
-				<!-- 				<p:commandButton id="2" value="Déconnexion" -->
-				<!-- 					action="#{proxiController.logOut()}" ajax="false" -->
-				<!-- 					icon="ui-icon-circle-close"></p:commandButton> -->
-				<br />
-				<br />
+			
+
 				<p:growl id="messages" showDetail="true" />
 
-				<p:dataTable var="tempclient" value="#{proxiController.customers}"
+				<p:dataTable var="tempclient" value="#{customerController.allCustomers}"
 					styleClass="et_datatable" reflow="true"
 					emptyMessage="Aucun client existant" rows="10" paginator="true"
 					paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
