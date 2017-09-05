@@ -5,51 +5,47 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:p="http://primefaces.org/ui"
-	>
-   <body>
-      <ui:composition> 
-         <nav class="navbar navbar-light" role="navigation" style="background-color: #e3f2fd;">
-  <div class="container-fluid">
-  
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#"><h:graphicImage library="img" name="Proxibanque.png" width="30" 
-      />Proxibanque SI</a>
+	xmlns:p="http://primefaces.org/ui">
+<body>
+	<ui:composition>
+		<nav class="navbar navbar-light" role="navigation"
+			style="background-color: #e3f2fd;">
+		<div class="container-fluid">
 
-    </div>
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#"><h:graphicImage library="img"
+						name="Proxibanque.png" width="30" />Proxibanque SI</a>
 
-    
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-     
-      <ul class="nav navbar-nav navbar-right">
-        <li class="nav-item">
-          <a href="#" class="nav-link">Liste Clients <span class="sr-only"></span></a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link">Créer Clients</a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link">Virement</a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link">Liste Conseillers</a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link">Audit</a>
-        </li>
-         <li class="nav-item">
-          <h:link value="Déconnexion" outcome="home.xhtml"/>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-      </ui:composition>	
-   </body>
+			</div>
+
+
+			<div class="collapse navbar-collapse"
+				id="bs-example-navbar-collapse-1">
+
+				<ul class="nav navbar-nav navbar-right">
+					<li class="nav-item"><a href="listeClients.xhtml"
+						class="nav-link">Liste Clients <span class="sr-only"></span>
+					</a></li>
+					<li class="nav-item"><a href="ajoutClient.xhtml"
+						class="nav-link">Créer Clients</a></li>
+					<li class="nav-item"><a href="#" class="nav-link">Virement</a>
+					</li>
+					<li class="nav-item"><a href="#" class="nav-link">Liste
+							Conseillers</a></li>
+					<li class="nav-item"><a href="#" class="nav-link">Audit</a></li>
+<!-- 					<li class="nav-item"><h:link value="Déconnexion" -->
+<!-- 							outcome="WEB-INF/login.html" /></li> -->
+
+				</ul>
+			</div>
+		</div>
+		</nav>
+	</ui:composition>
+</body>
 </html>

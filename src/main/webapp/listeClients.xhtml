@@ -1,115 +1,119 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 
-<!-- <f:metadata> -->
-<!-- 	<f:event type="preRenderView" -->
-<!-- 		listener="#{proxiController.loadClients()}" /> -->
-<!-- </f:metadata> -->
 
 
-<h:body>
-	<ui:composition template="/WEB-INF/tags/layout.xhtml">
-		<ui:define name="content">
 
-			<!-- 			<h:form> -->
-			<!-- 				<p:commandButton id="1" value="Ajouter un client" -->
-			<!-- 					action="ajoutClient" ajax="false" icon="ui-icon-star" /> -->
-			<!-- 			</h:form> -->
+<ui:composition template="/WEB-INF/tags/layout.xhtml">
+	<ui:define name="metadata">
+		<f:metadata>
+			<f:event type="preRenderView"
+				listener="#{customerController.loadAllCustomers()}" />
+		</f:metadata>
+	</ui:define>
 
-			<h:form id="listClient">
-				<br />
-				<!-- 				<p:commandButton id="2" value="Déconnexion" -->
-				<!-- 					action="#{proxiController.logOut()}" ajax="false" -->
-				<!-- 					icon="ui-icon-circle-close"></p:commandButton> -->
-				<br />
-				<br />
-				<p:growl id="messages" showDetail="true" />
 
-				<p:dataTable var="tempclient" value="#{customerController.allCustomers}"
-					styleClass="et_datatable" reflow="true"
-					emptyMessage="Aucun client existant" rows="10" paginator="true"
-					paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-					rowsPerPageTemplate="5,10,15" rowKey="#{tempclient.nom}"
-					selection="#{proxiController.selectedClient}"
-					selectionMode="single">
+	<ui:define name="content">
 
-					<f:facet name="header">Liste des clients</f:facet>
+		<!-- 			<h:form> -->
+		<!-- 				<p:commandButton id="1" value="Ajouter un client" -->
+		<!-- 					action="ajoutClient" ajax="false" icon="ui-icon-star" /> -->
+		<!-- 			</h:form> -->
 
-					<p:column headerText="Détails" style="width:32px">
-						<p:rowToggler />
-					</p:column>
+		<h:form id="listClient">
+			<br />
+			<!-- 				<p:commandButton id="2" value="Déconnexion" -->
+			<!-- 					action="#{proxiController.logOut()}" ajax="false" -->
+			<!-- 					icon="ui-icon-circle-close"></p:commandButton> -->
+			<br />
+			<br />
+			<p:growl id="messages" showDetail="true" />
 
-					<p:column headerText="Prénom" sortBy="#{tempclient.firstname}"
-						filterBy="#{tempclient.firstname}" filterMatchMode="contains">
+			<p:dataTable var="tempclient"
+				value="#{customerController.allCustomers}" styleClass="et_datatable"
+				reflow="true" emptyMessage="Aucun client existant" rows="10"
+				paginator="true"
+				paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+				rowsPerPageTemplate="5,10,15" rowKey="#{tempclient.name}">
+<!-- 				selection="#{customerController.selectedCustomer}" -->
+<!-- 				selectionMode="single" -->
+				<f:facet name="header">Liste des clients</f:facet>
 
-						<h:outputText value="#{tempclient.firstname}" />
-					</p:column>
+				<p:column headerText="Détails">
+					<p:rowToggler />
+				</p:column>
 
-					<p:column headerText="Nom" sortBy="#{tempclient.name}"
-						filterBy="#{tempclient.name}" filterMatchMode="contains">
-						<h:outputText value="#{tempclient.name}" />
-					</p:column>
+				<p:column headerText="Prénom" sortBy="#{tempclient.firstname}"
+					filterBy="#{tempclient.firstname}" filterMatchMode="contains">
 
-					<p:column headerText="Voir comptes">
+					<h:outputText value="#{tempclient.firstname}" />
+				</p:column>
 
-						<h:commandLink value="Voir comptes"
-							action="proxiController.compte(tempclient.id)}" />
+				<p:column headerText="Nom" sortBy="#{tempclient.name}"
+					filterBy="#{tempclient.name}" filterMatchMode="contains">
+					<h:outputText value="#{tempclient.name}" />
+				</p:column>
 
-					</p:column>
+				<p:column headerText="Voir comptes">
 
-					<p:column headerText="Editer">
+					<h:commandLink value="Voir comptes"
+						action="proxiController.compte(tempclient.id)}" />
 
-						<h:commandLink value="Editer"
-							action="#{proxiController.loadClient(tempclient.id)}" />
+				</p:column>
 
-					</p:column>
-					<p:column headerText="Supprimer">
-						<h:commandLink value="Supprimer"
-							onclick="if (!confirm('Etes vous sûr de vouloir supprimer ce client ?')) return false"
-							action="#{proxiController.deleteClient(tempclient.id)}" />
-					</p:column>
+				<p:column headerText="Editer">
 
-					<p:rowExpansion>
-						<p:panelGrid columns="2" columnClasses="label,value">
-							<f:facet name="header">Editer
+					<h:commandLink value="Editer"
+						action="#{customerController.loadCustomer(tempclient.id)}" />
+
+				</p:column>
+				<p:column headerText="Supprimer">
+					<h:commandLink value="Supprimer"
+						onclick="if (!confirm('Etes vous sûr de vouloir supprimer ce client ?')) return false"
+						action="#{customerController.deleteCustomer(tempclient.id)}" />
+				</p:column>
+
+				<p:rowExpansion>
+					<p:panelGrid columns="2" columnClasses="label,value">
+						<f:facet name="header">Editer
 					</f:facet>
 
-							<h:outputText value="Prénom" />
-							<h:inputText value="#{tempclient.firstname}" />
+						<h:outputText value="Prénom" />
+						<h:inputText value="#{tempclient.firstname}" />
 
-							<h:outputText value="Nom" />
-							<h:inputText value="#{tempclient.name}" />
+						<h:outputText value="Nom" />
+						<h:inputText value="#{tempclient.name}" />
 
-							<h:outputText value="Email" />
-							<h:inputText value="#{tempclient.email}" />
+						<h:outputText value="Email" />
+						<h:inputText value="#{tempclient.email}" />
 
-							<h:outputText value="Téléphone" />
-							<h:inputText value="#{tempclient.tel}" />
+						<h:outputText value="Téléphone" />
+						<h:inputText value="#{tempclient.tel}" />
 
-							<h:outputText value="Adresse" />
-							<h:inputText value="#{tempclient.address}" />
+						<h:outputText value="Adresse" />
+						<h:inputText value="#{tempclient.address}" />
 
-							<h:outputText value="Code Postal" />
-							<h:inputText value="#{tempclient.cp}" />
+						<h:outputText value="Code Postal" />
+						<h:inputText value="#{tempclient.cp}" />
 
-							<h:outputText value="Ville" />
-							<h:inputText value="#{tempclient.town}" />
+						<h:outputText value="Ville" />
+						<h:inputText value="#{tempclient.town}" />
 
-							<!-- 							<p:commandButton id="3" value="Valider" ajax="false" -->
-							<!-- 								icon="ui-icon-disk" -->
-							<!-- 								onclick="if (!confirm('Etes vous sûr de vouloir mettre à jour ce client ?')) return false" -->
-							<!-- 								action="#{proxiController.updateClient(tempclient)}" /> -->
-						</p:panelGrid>
-					</p:rowExpansion>
-				</p:dataTable>
+						<!-- 							<p:commandButton id="3" value="Valider" ajax="false" -->
+						<!-- 								icon="ui-icon-disk" -->
+						<!-- 								onclick="if (!confirm('Etes vous sûr de vouloir mettre à jour ce client ?')) return false" -->
+						<!-- 								action="#{customerController.editCustomer(tempclient)}" /> -->
+					</p:panelGrid>
+				</p:rowExpansion>
+			</p:dataTable>
 
-			</h:form>
-		</ui:define>
-	</ui:composition>
-</h:body>
+		</h:form>
+	</ui:define>
+</ui:composition>
+
 </html>

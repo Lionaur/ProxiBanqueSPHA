@@ -15,18 +15,20 @@ public class ApliTest {
 		Customer c2 = new Customer("titi","toto");
 		Customer c3 = new Customer(1, "yiuhi", "ok"); 
 		
+		c1.setAddress("12 rue test");
+		c1.setEmail("fifi.r@test.test");
 		service.editCustomer(c1);
 		
 		System.out.println(service.getAllCustomers());
-		
-		service.editCustomer(c2);
-		System.out.println(service.getAllCustomers());
-		service.editCustomer(c3);
+//		
+//		service.editCustomer(c2);
+//		System.out.println(service.getAllCustomers());
+//		service.editCustomer(c3);
 		
 //		System.out.println(service.getAllCustomers());
 //		service.deleteCustomer(2);
-		
-		System.out.println(service.getAllCustomers());
+//		
+//		System.out.println(service.getAllCustomers());
 	}
 
 }
