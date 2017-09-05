@@ -14,7 +14,7 @@ import org.springframework.util.StopWatch;
 public class AspectLog {
 	private static final Logger LOGGER = LoggerFactory.getLogger(AspectLog.class);
 
-	@Around("log()")
+	@Around("logService()")
 	public Object logTimeMethod(ProceedingJoinPoint joinPoint) throws Throwable {
 
 		try {
@@ -48,7 +48,7 @@ public class AspectLog {
 			logMessage.append(" ms");
 			LOGGER.trace(logMessage.toString());
 			return retVal;
-			
+
 		} catch (Throwable e) {
 			StringBuffer logMessage = new StringBuffer();
 			logMessage.append(joinPoint.getTarget().getClass().getName());
@@ -62,6 +62,16 @@ public class AspectLog {
 
 	@Pointcut("execution(public * *(..))")
 	public void log() {
+
+	}
+
+	@Pointcut("within(org.proxiBanqueSPHA.service..*)")
+	private void inService() {
+
+	}
+
+	@Pointcut("log() && inService()")
+	private void logService() {
 
 	}
 }
