@@ -3,22 +3,17 @@ package org.proxiBanqueSPHA.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.faces.bean.ManagedBean;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-import org.hibernate.annotations.Cascade;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Entity
-@ManagedBean
 @Component("customer")
 @Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 
@@ -28,12 +23,27 @@ public class Customer extends Person {
 	private String email;
 	private String tel;
 	private String cp;
+	private String town;
 	
 	@OneToMany (mappedBy="customer", orphanRemoval=true, cascade= CascadeType.ALL)
 	private List<Account> listAccount=new ArrayList<>();
-	private String town;
+	
+	@ManyToOne(cascade= CascadeType.ALL)
+	@JoinColumn(name="idAdvisor")
+	private Advisor advisor;
 	
 	
+	
+	public Advisor getAdvisor() {
+		return advisor;
+	}
+
+
+	public void setAdvisor(Advisor advisor) {
+		this.advisor = advisor;
+	}
+
+
 	public Customer() {
 		super();
 		

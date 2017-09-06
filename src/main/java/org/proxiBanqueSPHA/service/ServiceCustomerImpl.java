@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.proxiBanqueSPHA.dao.IDaoAccount;
+
 import org.proxiBanqueSPHA.dao.IDaoCustomer;
 import org.proxiBanqueSPHA.model.Customer;
 import org.springframework.stereotype.Service;
@@ -30,7 +30,7 @@ public class ServiceCustomerImpl implements IServiceCustomer {
 
 	@Override
 	public List<Customer> getAllCustomers() {
-		System.out.println("ok");
+
 		return dao.findAll();
 	}
 	
