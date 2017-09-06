@@ -64,7 +64,7 @@
 				</p:column>
 				<p:column headerText="Supprimer">
 					<h:commandLink value="Supprimer"
-						onclick="if (!confirm('Etes vous sûr de vouloir supprimer ce client ?')) return false"
+						onclick="if (!confirm('Etes vous sûr de vouloir supprimer ce client ? La suppression de ce client entrainera la suppression de tout ses comptes, assurez vous que leur solde soit nul.')) return false"
 						action="#{customerController.deleteCustomer(tempclient.id)}" />
 				</p:column>
 
@@ -94,10 +94,10 @@
 						<h:outputText value="Ville" />
 						<h:inputText value="#{tempclient.town}" />
 
-<!-- 													<p:commandButton id="3" value="Valider" ajax="false" -->
-<!-- 														icon="ui-icon-disk" -->
-<!-- 														onclick="if (!confirm('Etes vous sûr de vouloir mettre à jour ce client ?')) return false" -->
-<!-- 														action="#{customerController.editCustomer(tempclient)}" /> -->
+						<!-- 													<p:commandButton id="3" value="Valider" ajax="false" -->
+						<!-- 														icon="ui-icon-disk" -->
+						<!-- 														onclick="if (!confirm('Etes vous sûr de vouloir mettre à jour ce client ?')) return false" -->
+						<!-- 														action="#{customerController.editCustomer(tempclient)}" /> -->
 					</p:panelGrid>
 				</p:rowExpansion>
 			</p:dataTable>
