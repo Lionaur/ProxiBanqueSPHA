@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="/WEB-INF/tags/layout.xhtml">
+	<ui:define name="content">
+		<div id="container">
+
+
+			<h:messages globalOnly="true" />
+
+			<h:form id="form" style="margin-top: 10px;">
+			
+			<p:panel header="Nouveau Compte">
+		<h:panelGrid columns="2">
+			<p:selectOneMenu value="Type de compte">
+				<f:selectItems id="checkingAccount"
+					value="Compte courant" var="c"
+					itemLabel="check" itemValue="compte courant" />
+		  <f:selectItems id="savingsAccount"
+					value="Compte Epargne" var="e"
+					itemLabel="save" itemValue="compte epargne" />
+			</p:selectOneMenu>
+		 </h:panelGrid>
+		 </p:panel>
+		 
+		 
+		 </h:form>
+		 
+
+		</div>
+	</ui:define>
+</ui:composition>
+</html>

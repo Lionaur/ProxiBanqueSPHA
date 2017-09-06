@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="/WEB-INF/tags/layout.xhtml">
+<!-- 	<ui:define name="metadata"> -->
+<!-- 		<f:metadata> -->
+<!-- 			<f:event type="preRenderView" -->
+<!-- 				listener="#{accountController.loadCustomerAccount(id)}" /> -->
+<!-- 		</f:metadata> -->
+<!-- 	</ui:define> -->
+	<ui:define name="content">
+
+		<h:form id="listComptes">
+
+
+			<p:growl id="messages" showDetail="true" />
+
+
+			<p:dataTable var="tempaccount"
+				value="#{accountController.allAccount}" styleClass="et_datatable"
+				reflow="true" emptyMessage="Aucun compte existant" rows="10"
+				paginator="true"
+				paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+				rowsPerPageTemplate="5" rowKey="#{tempaccount.accountNumber}"
+				filteredValue="#{accountController.selectedAccount}">
+
+				<f:facet name="header">Liste des comptes</f:facet>
+
+
+				<p:column headerText="Numéro de compte"
+					sortBy="#{tempaccount.accountNumber}"
+					filterBy="#{tempaccount.accountNumber}" filterMatchMode="contains">
+
+					<h:outputText value="#{tempaccount.accountNumber}" />
+				</p:column>
+
+				<p:column headerText="Date d'ouverture" sortBy="#{tempaccount.date}"
+					filterBy="#{tempaccount.date}" filterMatchMode="contains">
+					<h:outputText value="#{tempaccount.date}" />
+				</p:column>
+
+				<p:column headerText="Solde" sortBy="#{tempaccount.balance}"
+					filterBy="#{tempaccount.date}" filterMatchMode="contains">
+					<h:outputText value="#{tempaccount.balance}" />
+				</p:column>
+
+
+
+			</p:dataTable>
+
+		</h:form>
+		<br/>
+		<br/>
+<h:button value="Ajouter un compte" outcome="ajoutCompte" />
+	</ui:define>
+
+</ui:composition>
+
+</html>
+

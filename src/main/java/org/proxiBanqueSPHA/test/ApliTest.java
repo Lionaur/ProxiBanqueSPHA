@@ -30,6 +30,7 @@ public class ApliTest {
 		serviceAdvisor.editAdvisor(a2);
 		serviceAdvisor.editAdvisor(a1);
 
+
 		a2.setFirstname("Jeanne");
 		serviceAdvisor.editAdvisor(a2);
 //		serviceAdvisor.deleteAdvisor(a1.getId());
@@ -82,7 +83,41 @@ public class ApliTest {
 
 		// System.out.println(serviceAccount.getCustomerAccount(196608));
 
-		// serviceAccount.deleteAccount(229377);
+//		service.getAllCustomers();
+//		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/YYYY HH:mm:ss");
+//		String dateTransfer = LocalDateTime.now().format(dtf);
+//		LocalDateTime date = LocalDateTime.now();
+//		System.out.println(date);
+//
+		IServiceAccount serviceAccount = context.getBean("serviceAccount", IServiceAccount.class);
+//		Customer c1 = new Customer("riri","fifi");
+//		Customer c2 = new Customer("titi","toto");
+//		Customer c3 = new Customer("yiuhi", "ok"); 
+//		Customer c4 = new Customer("0104", "78000");
+//		Account a1 = new SavingsAccount();
+//		Account a2 = new SavingsAccount();
+//		
+//		c4.addAccount(a1);
+//		c4.addAccount(a2);
+//		
+//		service.editCustomer(c4);
+		
+//		System.out.println(service.getAllCustomers());
+//		
+//		service.editCustomer(c2);
+//		System.out.println(service.getAllCustomers());
+//		service.editCustomer(c3);
+//		
+//		System.out.println(service.getAllCustomers());
+//		service.deleteCustomer(2);
+//		
+//		System.out.println(service.getAllCustomers());
+	
+//	System.out.println(serviceAccount.getAllAccount());
+	
+	
+//	serviceAccount.deleteAccount(229377);
+
 		((AnnotationConfigApplicationContext) context).close();
 	}
 

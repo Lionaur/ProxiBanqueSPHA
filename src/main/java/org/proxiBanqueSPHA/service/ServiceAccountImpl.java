@@ -7,6 +7,8 @@ import javax.annotation.Resource;
 
 import org.proxiBanqueSPHA.dao.IDaoAccount;
 import org.proxiBanqueSPHA.model.Account;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 @Service("serviceAccount")
@@ -49,8 +51,8 @@ public class ServiceAccountImpl implements IServiceAccount{
 	}
 
 	@Override
-	public Set<Account> getCustomerAccount(int id) {
-		
+	public List<Account> getCustomerAccount(int id) {
+
 		return daoAccount.findAccountByCustomerId(id);
 	}
 	

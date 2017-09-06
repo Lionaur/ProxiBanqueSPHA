@@ -1,7 +1,6 @@
 package org.proxiBanqueSPHA.dao;
 
 import java.util.List;
-import java.util.Set;
 
 import org.proxiBanqueSPHA.model.Account;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -10,5 +9,5 @@ import org.springframework.stereotype.Repository;
 @Repository("daoAccount")
 public interface IDaoAccount extends JpaRepository<Account, Integer>{
 
-	public Set<Account> findAccountByCustomerId(int id);
+	public List<Account> findAccountByCustomerId(int id);
 }
